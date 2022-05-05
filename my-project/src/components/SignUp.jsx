@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link  , useNavigate} from "react-router-dom";
-const SignUp=()=>{
+
         const navigate = useNavigate();
         //הפונקציה תבוא מהקונטקסט והיא זו שתבדוק האם זה יוזר נכון
-        const signFunc = () => {
+        const signFunc = (e) => {
+            e.preventDefault();
             
             navigate("/main");
         }
     return(
         <>
         <h1>אנו שמחים שבחרת להצטרך אלינו, אנא הכנס את הפרטים שלך!!!</h1>
-        <form onSubmit={signFunc}>
+        <form onSubmit= { e => signFunc(e)}>
             <input placeholder='user name' required = "true"></input><br/>
             <label>הכנס סיסמא</label>
             <input type="password" required = "true"></input><br/>

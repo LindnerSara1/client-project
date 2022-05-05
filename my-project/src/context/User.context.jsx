@@ -34,8 +34,19 @@ export const UserContextProvider = (props) => {
             catch(error) {
                 alert('error to sign in');
             }
+        },
+        async createUser (u) {
+            try {
+                const {data: user} = await axios.post(`${config.api}/User/CreateEntity` , {
+                    u,
+                });
+                setUser(user);
+                console.log(user);
+            }
+            catch(error) {
+                alert('error to create');
+            }
         }
-      
     }
     
     return <UserContext.Provider value={ contextValue } > 
